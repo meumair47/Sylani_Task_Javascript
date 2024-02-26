@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .clicksomewhere {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .clickedtime, .clickedposition {
+            margin-top: 20px;
+            color: #333;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clicksomewhere">
+        <h3>Click on screen to find dimension</h3>
+        <div class="clickedtime">Clicked Time:</div><br>
+        <div class="clickedposition">Clicked Position:</div>
+    </div>
+</body>
+<script>
+    clickedPosition = document.querySelector('.clickedposition')
+    clickedTime = document.querySelector('.clickedtime')
+    document.onclick = (e) =>{
+        let timenow = new Date()
+        thishour = timenow.getHours()
+        thismin = timenow.getMinutes()
+        thissec = timenow.getSeconds()
+        thismisec = timenow.getMilliseconds()
+        clickedPosition.textContent =`Clicked Position: Y ${e.clientY} ,  X ${e.clientX}`
+        clickedTime.textContent =`Clicked Time: ${thishour} Hours   ${thismin} Minutes  ${thissec} Second  ${thismisec} MilliSecond `
+    }
+</script>
+</html>
